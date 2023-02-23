@@ -1,18 +1,26 @@
-
+import Card from 'react-bootstrap/Card'
+import ListGroup from 'react-bootstrap/ListGroup'
+import Container from 'react-bootstrap/Container'
 
 export default function Packages({ packages }) {
-    const displayPackages = packages.map((eachPackage, i) => <li key={i}>{eachPackage}</li>)
+    const displayPackages = packages.map((eachPackage, i) => {
+        return (
+            <ListGroup.Item key={i}>{eachPackage}</ListGroup.Item>
+        )
+    })
 
     return (
-        <div>
-            <div className="packages">
-                <div className="packagesHeader">
-                    <h1>Our Packages</h1>
-                </div>
-                <ul>
+        <Container>
+            <Card>
+                <Card.Body>
+                    <Card.Text>
+                        Our Packages
+                    </Card.Text>
+                </Card.Body>
+                <ListGroup>
                     {displayPackages}
-                </ul>
-            </div>
-        </div>
+                </ListGroup>
+            </Card>
+        </Container>
     )
 }
